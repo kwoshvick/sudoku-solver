@@ -26,7 +26,3 @@ print(slib.populate_get_all_possibilities())
 
 # http://norvig.com/sudoku.html
 
-# slib.get_posibilities([4,2])
-
-# print(slib.draw_suduko_grid())
-
