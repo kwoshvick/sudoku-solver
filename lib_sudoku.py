@@ -2,8 +2,10 @@
 class Sudoku_Solver:
     def __init__(self,sudoku_puzzle):
         self.puzzle = sudoku_puzzle
+        self.possibilities = dict()
 
     def get_row(self,position):
+        print(position)
         row = self.puzzle[position[0]]
         # column = self.puzzle[position[]]
         return row
@@ -15,6 +17,9 @@ class Sudoku_Solver:
         return column
 
     def get_posibilities(self,position):
+        # for i in self.puzzle:
+        #     print(i)
+        # exit()
         posible_values = [0,1,2,3,4,5,6,7,8,9]
         row = self.get_row(position)
         column = self.get_column(position)
@@ -25,7 +30,7 @@ class Sudoku_Solver:
         for value in me:
             posible_values.remove(value)
 
-        print(posible_values)
+        return posible_values
 
     def get_square_values(self,position):
         square_values = list()
@@ -37,8 +42,6 @@ class Sudoku_Solver:
             square_values += values
         # print(square_values)
         return square_values
-
-
 
     def get_start_bounding_values(self,value):
         if value == 0 or value == 1 or value == 2:
@@ -64,4 +67,25 @@ class Sudoku_Solver:
             if counter == 3 or counter == 6:
                 print(" -----+-----+------")
             counter += 1
+
+    def populate_get_all_possibilities(self):
+        m = [0,1,2,3,4,5,6,7,8]
+        # print(m)
+        for i in m:
+            for b in m:
+                if(self.puzzle[i][b] == 0):
+                    self.possibilities[i,b] = self.get_posibilities([i,b])
+
+
+        print(self.possibilities)
+        # outer_counter = 0
+        # for list in self.puzzle:
+        #     inner_counter = 0
+        #     for value in list:
+        #         # print(value)
+        #         # print(inner_counter)
+        #         inner_counter += 1
+        #     print(outer_counter)
+        #     outer_counter += 1
+
 

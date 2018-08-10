@@ -2,6 +2,7 @@ from lib_sudoku import Sudoku_Solver
 
 
 mylist= list()
+mylist2= list()
 
 mylist.append([0,0,0,0,0,0,0,0,8])
 mylist.append([0,1,8,0,6,7,2,0,0])
@@ -15,10 +16,17 @@ mylist.append([4,0,0,0,9,5,0,2,0])
 
 slib = Sudoku_Solver(mylist)
 
-print(mylist[4][2])
+# print(mylist[4][2])
+
+print(slib.populate_get_all_possibilities())
+
+
+
+
 
 # http://norvig.com/sudoku.html
 
+# slib.get_posibilities([4,2])
 
-print(slib.draw_suduko_grid())
+# print(slib.draw_suduko_grid())
 
