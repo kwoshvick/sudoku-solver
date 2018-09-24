@@ -3,6 +3,7 @@ class Sudoku_Solver:
     def __init__(self,sudoku_puzzle):
         self.puzzle = sudoku_puzzle
         self.possibilities = dict()
+        self.po = 0
 
     def get_row(self,position):
         row = self.puzzle[position[0]]
@@ -21,7 +22,6 @@ class Sudoku_Solver:
         values = list(set(row).union(column))
         s = self.get_square_values(position)
         me = list(set(values).union(s))
-
         for value in me:
             posible_values.remove(value)
 
@@ -67,7 +67,43 @@ class Sudoku_Solver:
             for b in m:
                 if(self.puzzle[i][b] == 0):
                     self.possibilities[i,b] = self.get_posibilities([i,b])
+
         print(self.possibilities)
+
+    def update_sudoku_puzzle(self,position,value):
+        # print(type(value))
+        self.puzzle[position[0]][position[1]] = value[0]
+        self.draw_sudoku_grid()
+
+
+    def get_v(self):
+        for k,v in self.possibilities.items():
+            if len(v) == 1:
+                # pass
+                # print(str(v))
+                # p =
+                self.update_sudoku_puzzle(k,v)
+                self.po = 1
+        # return self.po
+
+
+
+    def brain(self):
+        print("-------",self.po)
+        self.populate_get_all_possibilities()
+        self.get_v()
+
+
+        while(self.po != 0):
+            print("-------", self.po)
+            self.po = 0
+            self.populate_get_all_possibilities()
+            self.get_v()
+            print("-------end", self.po)
+
+
+
+
 
 
 

@@ -18,8 +18,8 @@ slib = Sudoku_Solver(mylist)
 
 # print(mylist[4][2])
 
-print(slib.populate_get_all_possibilities())
-
+# print(slib.populate_get_all_possibilities())
+slib.brain()
 
 
 
