@@ -89,17 +89,17 @@ class Sudoku_Solver:
 
 
     def brain(self):
-        print("-------",self.po)
+        # print("-------",self.po)
         self.populate_get_all_possibilities()
         self.get_v()
 
 
-        while(self.po != 0):
-            print("-------", self.po)
-            self.po = 0
-            self.populate_get_all_possibilities()
-            self.get_v()
-            print("-------end", self.po)
+        # while(self.po != 0):
+        # print("-------", self.po)
+        self.po = 0
+        self.populate_get_all_possibilities()
+        self.get_v()
+        print("-------end", self.po)
 
 
 
